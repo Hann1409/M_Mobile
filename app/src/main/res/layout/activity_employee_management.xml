@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".EmployeeManagementActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Header Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Employee Management"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="6"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:useDefaultMargins="true">
+
+            <!-- Healthcare Section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="8dp">
+
+                <ImageView
+                    android:onClick="open_emp_healthcare_activity"
+                    android:id="@+id/imgEmpHealthcare"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/ic_emp_healthcare" />
+
+                <TextView
+                    android:id="@+id/txtEmpHealthcare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F8AAAA"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/title_emp_healthcare"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Salary Section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgEmpSalary"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/ic_emp_salary" />
+
+                <TextView
+                    android:id="@+id/txtEmpSalary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F8AAAA"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/title_emp_salary"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Attendance Section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgEmpAttendance"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/ic_emp_attendance" />
+
+                <TextView
+                    android:id="@+id/txtEmpAttendance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F8AAAA"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Employee Attendance"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Leave Management Section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgEmpLeave"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/ic_emp_leave" />
+
+                <TextView
+                    android:id="@+id/txtEmpLeave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F8AAAA"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Leave Management"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Performance Section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgEmpPerformance"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/ic_emp_performance" />
+
+                <TextView
+                    android:id="@+id/txtEmpPerformance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F8AAAA"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Performance Review"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Training Section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgEmpTraining"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/ic_emp_training" />
+
+                <TextView
+                    android:id="@+id/txtEmpTraining"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F8AAAA"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Training And Development"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Documents Section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgEmpDocuments"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/ic_emp_documents" />
+
+                <TextView
+                    android:id="@+id/txtEmpDocuments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F8AAAA"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Employee Documents"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Benefits Section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgEmpBenefits"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/ic_emp_benefits" />
+
+                <TextView
+                    android:id="@+id/txtEmpBenefits"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F8AAAA"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Employee Benefits"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Projects Section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgEmpProjects"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/ic_emp_projects" />
+
+                <TextView
+                    android:id="@+id/txtEmpProjects"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F8AAAA"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Project Management"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Reports Section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgEmpReports"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/ic_emp_reports" />
+
+                <TextView
+                    android:id="@+id/txtEmpReports"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F8AAAA"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Reports And Analytics"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Settings Section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgEmpSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/ic_emp_settings" />
+
+                <TextView
+                    android:id="@+id/txtEmpSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F8AAAA"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="System Settings"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </GridLayout>
+    </LinearLayout>
+</ScrollView>
