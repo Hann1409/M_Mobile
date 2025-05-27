@@ -75,16 +75,16 @@
 
 
                 <ImageView
-                    android:id="@+id/imgCategory"
+                    android:id="@+id/imgProduct"
                     android:layout_width="203dp"
                     android:layout_height="166dp"
-                    app:srcCompat="@mipmap/ic_category" />
+                    app:srcCompat="@mipmap/ic_product" />
 
                 <TextView
-                    android:id="@+id/txtCategory"
+                    android:id="@+id/txtProduct"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_category"
+                    android:text="@string/title_product"
                     android:textAlignment="center"
                     android:textColor="#03A9F4"
                     android:textSize="24sp" />
@@ -98,16 +98,16 @@
 
 
                 <ImageView
-                    android:id="@+id/imgProduct"
+                    android:id="@+id/imgAdvancedProduct"
                     android:layout_width="208dp"
                     android:layout_height="166dp"
-                    app:srcCompat="@mipmap/ic_product" />
+                    app:srcCompat="@mipmap/ic_advanced_product" />
 
                 <TextView
-                    android:id="@+id/txtProduct"
+                    android:id="@+id/txtAdvancedProduct"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_product"
+                    android:text="@string/title_advanced_product"
                     android:textAlignment="center"
                     android:textColor="#03A9F4"
                     android:textSize="24sp" />

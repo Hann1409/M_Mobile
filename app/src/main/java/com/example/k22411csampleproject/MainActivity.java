@@ -20,11 +20,11 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgCustomer;
     TextView txtCustomer;
 
-    ImageView imgCategory;
-    TextView txtCategory;
-
     ImageView imgProduct;
     TextView txtProduct;
+
+    ImageView imgAdvancedProduct;
+    TextView txtAdvancedProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,21 +71,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        imgCategory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //gọi code mở màn hình quản trị nhân sự
-                openCategoryManagementActivity();
-            }
-        });
-        txtCategory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //gọi code mở màn hình quản trị nhân sự
-                openCategoryManagementActivity();
-            }
-        });
-
         imgProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +85,24 @@ public class MainActivity extends AppCompatActivity {
                 openProductManagementActivity();
             }
         });
+
+        imgAdvancedProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //gọi code mở màn hình quản trị nhân sự
+                openAdvancedProductManagementActivity();
+            }
+        });
+        txtAdvancedProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //gọi code mở màn hình quản trị nhân sự
+                openAdvancedProductManagementActivity();
+            }
+        });
+
     }
+    
     void openEmployeeManagementActivity()
     {
         Intent intent=new Intent(MainActivity.this, EmployeeManagementActivity.class);
@@ -113,15 +115,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    void openCategoryManagementActivity()
+    private void openProductManagementActivity()
     {
-        Intent intent=new Intent(MainActivity.this, CategoryManagementActivity.class);
+        Intent intent=new Intent(MainActivity.this, ProductManagementActivity.class);
         startActivity(intent);
     }
 
-    void openProductManagementActivity()
+    void openAdvancedProductManagementActivity()
     {
-        Intent intent=new Intent(MainActivity.this, ProductManagementActivity.class);
+        Intent intent=new Intent(MainActivity.this, AdvancedProductManagementActivity.class);
         startActivity(intent);
     }
 
@@ -130,9 +132,10 @@ public class MainActivity extends AppCompatActivity {
         txtEmployee=findViewById(R.id.txtEmployee);
         imgCustomer=findViewById(R.id.imgCustomer);
         txtCustomer=findViewById(R.id.txtCustomer);
-        imgCategory=findViewById(R.id.imgCategory);
-        txtCategory=findViewById(R.id.txtCategory);
         imgProduct=findViewById(R.id.imgProduct);
         txtProduct=findViewById(R.id.txtProduct);
+        imgAdvancedProduct=findViewById(R.id.imgAdvancedProduct);
+        txtAdvancedProduct=findViewById(R.id.txtAdvancedProduct);
+
     }
 }
