@@ -1,5 +1,7 @@
 package com.example.models;
 
+import com.example.k22411csampleproject.R;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
@@ -18,32 +20,17 @@ public class ListProduct implements Serializable {
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
     }
+    public void generate_sample_product_dataset() {
+        Product p1 = new Product(1, "Coca Cola", 100, 10.0, R.mipmap.ic_coca);
+        Product p2 = new Product(2, "Pepsi", 120, 9.5, R.mipmap.ic_pepsi);
+        Product p3 = new Product(3, "7Up", 90, 8.0, R.mipmap.ic_up);
+        Product p4 = new Product(4, "Fanta", 85, 8.5, R.mipmap.ic_fanta);
+        Product p5 = new Product(5, "Sprite", 95, 9.0, R.mipmap.ic_sprite);
+        products.add(p1);
+        products.add(p2);
+        products.add(p3);
+        products.add(p4);
+        products.add(p5);
 
-    public void addProduct(Product p) {
-        products.add(p);
-    }
-
-    public void generate_sample_dataset() {
-        Random random = new Random();
-        
-        // Sample products for Electronics (category_id = 1)
-        addProduct(new Product(1, "Smartphone", 50, 999.99, 1, "Latest model smartphone"));
-        addProduct(new Product(2, "Laptop", 30, 1299.99, 1, "High-performance laptop"));
-        addProduct(new Product(3, "Headphones", 100, 199.99, 1, "Wireless noise-cancelling headphones"));
-        
-        // Sample products for Clothing (category_id = 2)
-        addProduct(new Product(4, "T-Shirt", 200, 29.99, 2, "Cotton t-shirt"));
-        addProduct(new Product(5, "Jeans", 150, 79.99, 2, "Classic blue jeans"));
-        addProduct(new Product(6, "Sneakers", 80, 89.99, 2, "Comfortable running shoes"));
-        
-        // Sample products for Books (category_id = 3)
-        addProduct(new Product(7, "Novel", 300, 19.99, 3, "Bestselling fiction novel"));
-        addProduct(new Product(8, "Textbook", 50, 49.99, 3, "Educational textbook"));
-        addProduct(new Product(9, "Cookbook", 75, 24.99, 3, "Collection of recipes"));
-        
-        // Sample products for Food (category_id = 4)
-        addProduct(new Product(10, "Cereal", 100, 5.99, 4, "Breakfast cereal"));
-        addProduct(new Product(11, "Pasta", 150, 3.99, 4, "Italian pasta"));
-        addProduct(new Product(12, "Snacks", 200, 2.99, 4, "Assorted snacks"));
     }
 } 

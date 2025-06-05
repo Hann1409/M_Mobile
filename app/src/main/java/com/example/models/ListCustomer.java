@@ -44,4 +44,11 @@ public class ListCustomer implements Serializable {
             addCustomer(c);
         }
     }
+    public boolean isExist(Customer c) {
+        for (Customer cus : customers) {
+            if (cus.getId() == c.getId() || cus.getPhone().equals(c.getPhone()) || cus.getEmail().equals(c.getEmail()) || cus.getUsername().equals(c.getUsername()))
+                return true;
+        }
+        return false;
+    }
 }

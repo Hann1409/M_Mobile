@@ -6,15 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ProductManagementActivity">
-
-    <Spinner
-        android:id="@+id/SpinnerCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    tools:context=".AdvancedProductManagementActivity">
 
     <ListView
-        android:id="@+id/lvProduct"
+        android:id="@+id/lvAdvancedProduct"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
