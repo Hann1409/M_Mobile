@@ -6,15 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#E3F2FD"
     tools:context=".ProductManagementActivity">
 
     <Spinner
         android:id="@+id/SpinnerCategory"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="#BBDEFB"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
 
     <ListView
         android:id="@+id/lvProduct"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#1976D2"
+        android:dividerHeight="1dp"
+        android:background="#E3F2FD" />
 </LinearLayout>
