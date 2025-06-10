@@ -47,4 +47,6 @@
     <string name="title_product_description">Product Description:</string>
     <string name="title_product_image_id">Product ImageID:</string>
     <string name="title_product_detail">Product Detail</string>
+    <string name="title_payment">Payment</string>
+    <string name="title_order">Order</string>
 </resources>

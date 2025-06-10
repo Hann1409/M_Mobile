@@ -26,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgAdvancedProduct;
     TextView txtAdvancedProduct;
 
+    ImageView imgPayment;
+    TextView txtPayment;
+
+    ImageView imgOrder;
+    TextView txtOrder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +107,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        imgPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //gọi code mở màn hình quản trị nhân sự
+                openPaymentManagementActivity();
+            }
+        });
+        txtPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //gọi code mở màn hình quản trị nhân sự
+                openPaymentManagementActivity();
+            }
+        });
+
+        imgOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //gọi code mở màn hình quản trị nhân sự
+                openOrderManagementActivity();
+            }
+        });
+        txtOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //gọi code mở màn hình quản trị nhân sự
+                openOrderManagementActivity();
+            }
+        });
     }
     
     void openEmployeeManagementActivity()
@@ -127,6 +162,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    void openPaymentManagementActivity()
+    {
+        Intent intent=new Intent(MainActivity.this, PaymentManagementActivity.class);
+        startActivity(intent);
+    }
+
+    void openOrderManagementActivity()
+    {
+        Intent intent=new Intent(MainActivity.this, OrdersViewerActivity.class);
+        startActivity(intent);
+    }
     private void addViews() {
         imgEmployee=findViewById(R.id.imgEmployee);
         txtEmployee=findViewById(R.id.txtEmployee);
@@ -136,6 +182,10 @@ public class MainActivity extends AppCompatActivity {
         txtProduct=findViewById(R.id.txtProduct);
         imgAdvancedProduct=findViewById(R.id.imgAdvancedProduct);
         txtAdvancedProduct=findViewById(R.id.txtAdvancedProduct);
+        imgPayment=findViewById(R.id.imgPayment);
+        txtPayment=findViewById(R.id.txtPayment);
+        imgOrder=findViewById(R.id.imgOrder);
+        txtOrder=findViewById(R.id.txtOrder);
 
     }
 }
