@@ -21,7 +21,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.connectors.CustomerConnector;
+import com.example.connectors.SQLiteConnector;
 import com.example.models.Customer;
+import com.example.models.ListCustomer;
 
 public class CustomerManagementActivity extends AppCompatActivity {
 
@@ -73,7 +75,8 @@ public class CustomerManagementActivity extends AppCompatActivity {
         lvCustomer = findViewById(R.id.lvCustomer);
         adapter = new ArrayAdapter<>(CustomerManagementActivity.this, android.R.layout.simple_list_item_1);
         connector = new CustomerConnector();
-        adapter.addAll(connector.get_all_customers());
+        ListCustomer lc = connector.getAllCustomer(new SQLiteConnector(this).openDatabase());
+        adapter.addAll(lc.getCustomers());
         lvCustomer.setAdapter(adapter);
     }
 
@@ -99,7 +102,7 @@ public class CustomerManagementActivity extends AppCompatActivity {
             Toast.makeText(CustomerManagementActivity.this,"Gửi quảng cáo hàng loạt tới khách hàng",Toast.LENGTH_LONG).show();
 
         }
-        else if(item.getItemId()==R.id.mernu_help){
+        else if(item.getItemId()==R.id.menu_help){
 
             Toast.makeText(CustomerManagementActivity.this,"Mở Website hướng dẫn sử dụng",Toast.LENGTH_LONG).show();
 
@@ -115,7 +118,7 @@ public class CustomerManagementActivity extends AppCompatActivity {
             //lấy gói tin ra:
             Customer c =(Customer) data.getSerializableExtra("NEW CUSTOMER");
             process_save_customer(c);
-            
+
         }
     }
 

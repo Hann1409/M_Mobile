@@ -1,5 +1,8 @@
 package com.example.connectors;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import com.example.models.Customer;
 import com.example.models.ListCustomer;
 
@@ -41,5 +44,38 @@ public class CustomerConnector {
 
     public void addCustomer(Customer c) {
         listCustomer.addCustomer(c);
+    }
+
+    /**
+     * Đây là hàm truy vấn toàn bộ dữ liệu khách hàng
+     * sau đó mô hình hóa hướng đối tượng
+     * @param database
+     * @return trả về ListCustomer
+     */
+    public ListCustomer getAllCustomer(SQLiteDatabase database){
+        listCustomer = new ListCustomer();
+        Cursor cursor = database.rawQuery("SELECT * FROM Customer",null);
+        while(cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            String Name = cursor.getString(1);
+            String Email = cursor.getString(2);
+            String Phone = cursor.getString(3);
+            String UserName = cursor.getString(4);
+            String Password = cursor.getString(5);
+            Customer c = new Customer();
+            c.setId(id);
+            c.setName(Name);
+            c.setEmail(Email);
+            c.setPhone(Phone);
+            c.setUsername(UserName);
+            c.setPassword(Password);
+            listCustomer.addCustomer(c);
+            //To do something ….
+        }
+        cursor.close();
+
+
+
+        return listCustomer;
     }
 }
