@@ -4,6 +4,7 @@ public class OrderDetail {
     private int id;
     private int OrderId;
     private int ProductId;
+    private String ProductName;
     private int Quantity;
     private double Price;
     private double Discount;
@@ -13,10 +14,11 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(int id, int orderId, int productId, int quantity, double price, double discount, double VAT, double totalValue) {
+    public OrderDetail(int id, int orderId, int productId, String productName, int quantity, double price, double discount, double VAT, double totalValue) {
         this.id = id;
         OrderId = orderId;
         ProductId = productId;
+        ProductName = productName;
         Quantity = quantity;
         Price = price;
         Discount = discount;
@@ -46,6 +48,12 @@ public class OrderDetail {
 
     public void setProductId(int productId) {
         ProductId = productId;
+    }
+    public String getProductName() {
+        return ProductName;
+    }
+    public void setProductName(String productName) {
+        ProductName = productName;
     }
 
     public int getQuantity() {

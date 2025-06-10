@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#E3F2FD"
+    tools:context=".OrdersDetailActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order Information"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textColor="#2196F3"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        android:background="#BBDEFB"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="2dp">
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order ID:"
+                android:textStyle="bold"
+                android:padding="3dp"
+                android:textColor="#1976D2"/>
+            <TextView
+                android:id="@+id/txtOrderId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:textColor="#2196F3"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Code:"
+                android:textStyle="bold"
+                android:padding="3dp"
+                android:textColor="#1976D2"/>
+            <TextView
+                android:id="@+id/txtOrderCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:textColor="#2196F3"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Date:"
+                android:textStyle="bold"
+                android:padding="3dp"
+                android:textColor="#1976D2"/>
+            <TextView
+                android:id="@+id/txtOrderDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:textColor="#2196F3"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customer:"
+                android:textStyle="bold"
+                android:padding="3dp"
+                android:textColor="#1976D2"/>
+            <TextView
+                android:id="@+id/txtCustomerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:textColor="#2196F3"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Employee:"
+                android:textStyle="bold"
+                android:padding="3dp"
+                android:textColor="#1976D2"/>
+            <TextView
+                android:id="@+id/txtEmployeeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:textColor="#2196F3"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Value:"
+                android:textStyle="bold"
+                android:padding="3dp"
+                android:textColor="#1976D2"/>
+            <TextView
+                android:id="@+id/txtTotalOrderValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:textColor="#2196F3"/>
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order Details"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="#2196F3"/>
+
+    <ListView
+        android:id="@+id/lvOrderDetails"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#1976D2"
+        android:dividerHeight="1dp"
+        android:background="#E3F2FD"/>
+
+</LinearLayout>

@@ -17,7 +17,7 @@ public class OrdersViewerConnector {
         builder.append(" o.OrderDate, ");
         builder.append(" e.Name AS EmployeeName, ");
         builder.append(" c.Name AS CustomerName, ");
-        builder.append(" SUM(od.Quantity * od.Price - od.Discount / 100.0) ");
+        builder.append(" SUM((od.Quantity * od.Price - od.Discount / 100.0 * od.Quantity * od.Price) * (1 + od.VAT / 100.0)) ");
         builder.append(" FROM Orders o ");
         builder.append(" JOIN Employee e ON o.EmployeeId = e.Id ");
         builder.append(" JOIN Customer c ON o.CustomerId = c.Id ");

@@ -6,11 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#E3F2FD"
     tools:context=".CustomerManagementActivity">
 
     <ListView
         android:id="@+id/lvCustomer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:listSelector="@color/material_dynamic_neutral_variant60" />
+        android:divider="#1976D2"
+        android:dividerHeight="1dp"
+        android:background="#E3F2FD" />
 </LinearLayout>

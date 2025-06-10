@@ -1,5 +1,6 @@
 package com.example.k22411csampleproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -14,6 +15,7 @@ import com.example.connectors.OrdersViewerConnector;
 import com.example.connectors.SQLiteConnector;
 import com.example.models.OrdersViewer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class OrdersViewerActivity extends AppCompatActivity {
@@ -39,10 +41,27 @@ public class OrdersViewerActivity extends AppCompatActivity {
         adapter = new OrdersViewerAdapter(this,R.layout.item_ordersviewer);
         lvOrdersViewer.setAdapter(adapter);
 
+        // Set item click listener using lambda for cleaner code
+        lvOrdersViewer.setOnItemClickListener((parent, view, position, id) -> {
+            OrdersViewer selectedOrder = adapter.getItem(position);
+            showOrderDetails(selectedOrder);
+        });
+
         SQLiteConnector connector = new SQLiteConnector(this);
         connector.openDatabase();
         OrdersViewerConnector ovc = new OrdersViewerConnector();
         ArrayList<OrdersViewer> dataset = ovc.getAllOrdersViewer(connector.getDatabase());
-        adapter.addAll(dataset);
+
+        // Add data to adapter
+        for (OrdersViewer order : dataset) {
+            adapter.add(order);
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    private void showOrderDetails(OrdersViewer order) {
+        Intent intent = new Intent(OrdersViewerActivity.this, OrdersDetailActivity.class);
+        intent.putExtra("SELECTED_ORDER", (Serializable) order);
+        startActivity(intent);
     }
 }

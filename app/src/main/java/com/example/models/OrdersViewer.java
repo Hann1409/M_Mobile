@@ -1,6 +1,6 @@
 package com.example.models;
 
-public class OrdersViewer extends Orders{
+public class OrdersViewer extends Orders implements java.io.Serializable {
     private String EmployeeName;
     private String CustomerName;
     private double TotalOrderValue;
