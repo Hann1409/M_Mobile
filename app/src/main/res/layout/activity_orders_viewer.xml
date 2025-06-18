@@ -15,5 +15,6 @@
         android:layout_height="match_parent"
         android:divider="#1976D2"
         android:dividerHeight="1dp"
-        android:background="#E3F2FD" />
+        android:background="#E3F2FD"
+        android:listSelector="#2196F3"/>
 </LinearLayout>

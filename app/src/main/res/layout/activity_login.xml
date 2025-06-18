@@ -6,8 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#E3F2FD"
     tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/txtNetworkType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Network Status"
+        android:textSize="18sp" />
 
     <ImageView
         android:id="@+id/imageView"
