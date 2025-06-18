@@ -47,11 +47,26 @@ public class CustomerDetailActivity extends AppCompatActivity {
                 process_save_customer();
             }
         });
+        btnRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                process_remove_customer();
+            }
+        });
+        }
+
+    private void process_remove_customer() {
+        Intent intent = getIntent();
+        String id = edtCustomerID.getText().toString();
+        intent.putExtra("REMOVED CUSTOMER ID",id);
+        setResult(600, intent);
+        finish();
     }
 
     private void process_save_customer() {
         //Lấy giữ liệu trên giao diện để mô hình hóa lại hướng đối tượng Customer:
         Customer c = new Customer();
+
         c.setId(Integer.parseInt(edtCustomerID.getText().toString()));
         c.setName(edtCustomerName.getText().toString());
         c.setEmail(edtCustomerEmail.getText().toString());
@@ -61,13 +76,13 @@ public class CustomerDetailActivity extends AppCompatActivity {
 
         //lấy intent từ màn hình gọi nó:
         Intent intent = getIntent();
-        //lấy gói dữ liệu vào intent:
-        intent.putExtra("NEW CUSTOMER",c);
-        //đóng dấu là sẽ gưửi gói hàng này đi:
-        setResult(500,intent);
-        //đóng màn hình này lại, để màn hình gọi nó nhận được kết quả:
+        if (intent.hasExtra("SELECTED_CUSTOMER")) {
+            intent.putExtra("UPDATED CUSTOMER", c);
+        } else {
+            intent.putExtra("NEW CUSTOMER", c);
+        }
+        setResult(500, intent);
         finish();
-
     }
 
     private void addViews() {

@@ -6,10 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AdvancedProductManagementActivity">
+    android:background="#E3F2FD"
+    tools:context=".TelephonyActivity">
+
 
     <ListView
-        android:id="@+id/lvAdvancedProduct"
+        android:id="@+id/lvTelephony"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:divider="#1976D2"
+        android:dividerHeight="1dp"
+        android:background="#E3F2FD"
+        android:listSelector="#2196F3"/>
 </LinearLayout>

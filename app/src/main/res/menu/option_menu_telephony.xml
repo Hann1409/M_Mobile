@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_filter_viettel"
+        android:title="Lọc khách hàng Viettel" />
+    <item
+        android:id="@+id/menu_filter_mobile"
+        android:title="Lọc khách hàng Mobile Phone" />
+    <item
+        android:id="@+id/menu_filter_other"
+        android:title="Lọc khách hàng nhà mạng khác" />
+</menu> 

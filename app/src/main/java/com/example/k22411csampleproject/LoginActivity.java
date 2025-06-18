@@ -1,14 +1,21 @@
 package com.example.k22411csampleproject;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -38,6 +45,11 @@ public class LoginActivity extends AppCompatActivity {
     private static final String DB_PATH_SUFFIX = "/databases/";
     SQLiteDatabase database=null;
 
+    BroadcastReceiver networkReceiver=null;
+
+    Button btnLogin;
+    TextView txtNetworkType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,12 +63,76 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         processCopy();
+        setupBroadcastReceiver();
+    }
+
+    private void setupBroadcastReceiver() {
+        // Initialize and register the BroadcastReceiver for network changes
+        networkReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                checkNetworkStatus();
+            }
+        };
+    }
+
+    private boolean checkNetworkStatus() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            btnLogin.setVisibility(View.VISIBLE);
+            int type = networkInfo.getType();
+            int subType = networkInfo.getSubtype();
+            String typeName = "";
+            int bgColor = 0xFFCCCCCC; // Default gray
+            if (type == ConnectivityManager.TYPE_WIFI) {
+                typeName = "WiFi";
+                bgColor = 0xFF2196F3; // Blue
+            } else if (type == ConnectivityManager.TYPE_MOBILE) {
+                switch (subType) {
+                    case 13: // LTE
+                        typeName = "4G";
+                        bgColor = 0xFF4CAF50; // Green
+                        break;
+                    case 3: // UMTS
+                    case 5: // EVDO_0
+                    case 6: // EVDO_A
+                    case 8: // HSDPA
+                    case 9: // HSUPA
+                    case 10: // HSPA
+                    case 12: // EVDO_B
+                    case 15: // HSPAP
+                        typeName = "3G";
+                        bgColor = 0xFFFFC107; // Amber
+                        break;
+                    default:
+                        typeName = "Mobile";
+                        bgColor = 0xFFFF9800; // Orange
+                }
+            } else {
+                typeName = networkInfo.getTypeName();
+            }
+            if (txtNetworkType != null) {
+                txtNetworkType.setText(typeName);
+                txtNetworkType.setBackgroundColor(bgColor);
+            }
+            return true;
+        } else {
+            btnLogin.setVisibility(View.INVISIBLE);
+            if (txtNetworkType != null) {
+                txtNetworkType.setText("No Connection");
+                txtNetworkType.setBackgroundColor(0xFFF44336); // Red
+            }
+            return false;
+        }
     }
 
     private void addViews() {
         edtUserName=findViewById(R.id.edtUserName);
         edtPassword=findViewById(R.id.edtPassword);
         chkSaveLogin=findViewById(R.id.chkSaveLoginInfor);
+        btnLogin=findViewById(R.id.btnLogin);
+        txtNetworkType=findViewById(R.id.txtNetworkType);
     }
 
     public void do_login(View view) {
@@ -127,6 +203,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         saveLoginInformation();
+        if(networkReceiver!=null){
+            unregisterReceiver(networkReceiver);
+        }
     }
     public void restoreLoginInformation(){
         SharedPreferences preferences = getSharedPreferences("LOGIN_INFORMATION",MODE_PRIVATE);
@@ -144,6 +223,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         restoreLoginInformation();
+
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkReceiver,filter);
     }
 
     private void processCopy() {

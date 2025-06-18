@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgOrder;
     TextView txtOrder;
 
+    ImageView imgTelephony;
+    TextView txtTelephony;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,6 +139,21 @@ public class MainActivity extends AppCompatActivity {
                 openOrderManagementActivity();
             }
         });
+
+        imgTelephony.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //gọi code mở màn hình quản trị nhân sự
+                openTelephonyManagementActivity();
+            }
+        });
+        txtTelephony.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //gọi code mở màn hình quản trị nhân sự
+                openTelephonyManagementActivity();
+            }
+        });
     }
     
     void openEmployeeManagementActivity()
@@ -173,6 +191,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent=new Intent(MainActivity.this, OrdersViewerActivity.class);
         startActivity(intent);
     }
+
+    void openTelephonyManagementActivity()
+    {
+        Intent intent=new Intent(MainActivity.this, TelephonyActivity.class);
+        startActivity(intent);
+    }
+
     private void addViews() {
         imgEmployee=findViewById(R.id.imgEmployee);
         txtEmployee=findViewById(R.id.txtEmployee);
@@ -186,6 +211,8 @@ public class MainActivity extends AppCompatActivity {
         txtPayment=findViewById(R.id.txtPayment);
         imgOrder=findViewById(R.id.imgOrder);
         txtOrder=findViewById(R.id.txtOrder);
+        imgTelephony=findViewById(R.id.imgTelephony);
+        txtTelephony=findViewById(R.id.txtTelephony);
 
     }
 }

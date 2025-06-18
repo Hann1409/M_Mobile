@@ -49,4 +49,8 @@
     <string name="title_product_detail">Product Detail</string>
     <string name="title_payment">Payment</string>
     <string name="title_order">Order</string>
+    <string name="title_telephony">Telephony</string>
+    <string name="title_contact_name">Contact Name:</string>
+    <string name="title_phone_number">Phone Number:</string>
+    <string name="title_body">Body:</string>
 </resources>

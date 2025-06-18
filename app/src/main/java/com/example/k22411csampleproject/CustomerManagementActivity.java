@@ -1,6 +1,8 @@
 package com.example.k22411csampleproject;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -68,7 +70,8 @@ public class CustomerManagementActivity extends AppCompatActivity {
     private void displayCustomerDetailActivity(Customer c) {
         Intent intent = new Intent(CustomerManagementActivity.this, CustomerDetailActivity.class);
         intent.putExtra("SELECTED_CUSTOMER",c);
-        startActivity(intent);
+//        startActivity(intent);
+        startActivityForResult(intent,400);
     }
 
     private void addView() {
@@ -118,23 +121,58 @@ public class CustomerManagementActivity extends AppCompatActivity {
             //lấy gói tin ra:
             Customer c =(Customer) data.getSerializableExtra("NEW CUSTOMER");
             process_save_customer(c);
-
+        }
+        else if (requestCode==400 && resultCode==500){
+            //cập nhật dữ liệu cho Customer:
+            //lấy gói tin ra:
+            Customer c =(Customer) data.getSerializableExtra("UPDATED CUSTOMER");
+            process_save_update_customer(c);
+        }
+        else if (requestCode==400 && resultCode==600) {
+            //xóa dữ liệu cho Customer:
+            //lấy gói tin ra:
+            String id = data.getStringExtra("REMOVED CUSTOMER ID");
+            process_remove_customer(id);
         }
     }
 
     private void process_save_customer(Customer c) {
-        boolean result = connector.isExist(c);
-        if(result==true){
-            //tức l customer này đã tồn tại trong hệ thống
-            //họ có nhu cầu sử các thông tin khác, ví dụ:
-            //Địa chỉ, payment method,..
-            //Sinh viên tự xử lý trường hợp sửa thông tin
-        }
-        else{
-            //là thêm mới Customer
-            connector.addCustomer(c);
+        SQLiteConnector connector = new SQLiteConnector(this);
+        SQLiteDatabase database = connector.openDatabase();
+        CustomerConnector cc = new CustomerConnector();
+        long flag = cc.saveNewCustomer(database,c);
+        if(flag>0){
             adapter.clear();
-            adapter.addAll(connector.get_all_customers());
+            adapter.addAll(cc.getAllCustomer(database).getCustomers());
+            Toast.makeText(CustomerManagementActivity.this,"Thêm mới thành công",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void process_save_update_customer(Customer c) {
+        if (c == null) {
+            Toast.makeText(this, "Không có dữ liệu khách hàng để cập nhật!", Toast.LENGTH_LONG).show();
+            return;
+        }
+        SQLiteConnector connector = new SQLiteConnector(this);
+        SQLiteDatabase database = connector.openDatabase();
+        CustomerConnector cc = new CustomerConnector();
+        long flag = cc.saveUpdateCustomer(database,c);
+        if(flag>0){
+            adapter.clear();
+            adapter.addAll(cc.getAllCustomer(database).getCustomers());
+            Toast.makeText(CustomerManagementActivity.this,"Cập nhật thành công",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void process_remove_customer(String id) {
+        SQLiteConnector connector = new SQLiteConnector(this);
+        SQLiteDatabase database = connector.openDatabase();
+        CustomerConnector cc = new CustomerConnector();
+        long flag = cc.removeCustomer(database,id);
+        if(flag>0){
+            adapter.clear();
+            adapter.addAll(cc.getAllCustomer(database).getCustomers());
+            Toast.makeText(CustomerManagementActivity.this,"Xóa thành công",Toast.LENGTH_LONG).show();
         }
     }
 }
