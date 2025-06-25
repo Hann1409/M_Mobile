@@ -7,7 +7,6 @@
         android:enabled="true"
         android:title="@string/title_new_product"
         android:visible="true"
-        app:showAsAction="always"
 
         />
 
@@ -16,13 +15,11 @@
         android:title="@string/title_broadcast_advertising"
         android:enabled="true"
         android:visible="true"
-        app:showAsAction="always"
         />
     <item
         android:id="@+id/menu_help"
         android:title="@string/title_help"
         android:enabled="true"
         android:visible="true"
-        app:showAsAction="always"
         />
 </menu>
