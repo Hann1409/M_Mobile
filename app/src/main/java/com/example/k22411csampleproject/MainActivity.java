@@ -34,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imgTelephony;
     TextView txtTelephony;
+    ImageView imgMultiThreading;
+    TextView txtMultiThreading;
+
+    ImageView imgContact;
+    TextView txtContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,6 +159,36 @@ public class MainActivity extends AppCompatActivity {
                 openTelephonyManagementActivity();
             }
         });
+
+        imgMultiThreading.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //gọi code mở màn hình quản trị nhân sự
+                openMultiThreadingActivity();
+            }
+        });
+        txtMultiThreading.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //gọi code mở màn hình quản trị nhân sự
+                openMultiThreadingActivity();
+            }
+        });
+
+        imgContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //gọi code mở màn hình quản trị nhân sự
+                openContactManagemntActivity();
+            }
+        });
+        txtContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //gọi code mở màn hình quản trị nhân sự
+                openContactManagemntActivity();
+            }
+        });
     }
     
     void openEmployeeManagementActivity()
@@ -198,6 +233,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    void openMultiThreadingActivity(){
+        Intent intent=new Intent(MainActivity.this, MultiThreadingActivity.class);
+        startActivity(intent);
+    }
+
+    void openContactManagemntActivity(){
+        Intent intent=new Intent(MainActivity.this, ContactManagementActivity.class);
+        startActivity(intent);
+    }
+
     private void addViews() {
         imgEmployee=findViewById(R.id.imgEmployee);
         txtEmployee=findViewById(R.id.txtEmployee);
@@ -213,6 +258,12 @@ public class MainActivity extends AppCompatActivity {
         txtOrder=findViewById(R.id.txtOrder);
         imgTelephony=findViewById(R.id.imgTelephony);
         txtTelephony=findViewById(R.id.txtTelephony);
+        imgMultiThreading=findViewById(R.id.imgMultiThreading);
+        txtMultiThreading=findViewById(R.id.txtMultiThreading);
+        imgContact=findViewById(R.id.imgContact);
+        txtContact=findViewById(R.id.txtContact);
+
+
 
     }
 }
